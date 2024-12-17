@@ -2,46 +2,47 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* obliczanie szerokosci z paddingami, borderami... */
+  text-align: center;
 }
 
 body {
   font-family: "Arial", sans-serif;
-  line-height: 1.6;
+  line-height: 1.6; /* wieksza wielkosc linii */
   color: #333;
-  overflow-x: hidden;
-}
-
-.logo {
-  font-family: "Cinzel", serif; /* Elegancka czcionka przypominająca średniowieczny styl */
-  font-size: 4rem;
-  font-weight: bolder;
-  color: #ff9800; /* Pomarańczowy kolor */
-  font-style: italic; /* Pochylenie tekstu */
-  text-align: center;
-  letter-spacing: 3px; 
+  overflow-x: hidden; /* co sie dzieje z zawartoscia gdy przekracza szerokosc */
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-h1,
-h2,
-h3 {
-  text-align: center;
+  width: 95%;
+  margin: auto;
 }
 
 /* Header */
 .header {
   background: #2e8b57;
   color: white;
-  padding: 1rem 0;
-  position: sticky;
+  padding: 1rem 0; /* padding w pionie 1 w poziomie 0 */
+  position: relative;
   top: 0;
-  z-index: 1000;
+}
+
+.brand-name {
+  font-family: "Cinzel", serif; /* Elegancka czcionka przypominająca średniowieczny styl */
+  font-size: 4rem;
+  font-weight: bolder;
+  color: #ff9800;
+  font-style: italic;
+  text-align: center;
+}
+
+.nav {
+  background: #2e8b57;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 0; /* 1rem w pionie, 0 w poziomie */
+  position: sticky; /* Sprawia, że menu będzie sticky */
+  top: 0px;
 }
 
 .nav ul {
@@ -65,10 +66,9 @@ h3 {
   color: #ff9800;
 }
 
-/* Hero Section */
-.hero {
-  background: url("main.jpg") no-repeat center center/cover;
-  background-size: cover;
+/* HOME Section */
+.home {
+  background: url("img/main.jpg") no-repeat center center/cover;
   background-attachment: auto;
   height: 100vh;
   display: flex;
@@ -78,29 +78,28 @@ h3 {
   color: white;
 }
 
-.hero-content{
-  background-color: rgba(255, 102, 0, 0.); /* Tło pomarańczowe z 20% przezroczystości */
-  color: white; /* Kolor tekstu */
+.home-content {
+  color: white;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-
-.hero-content h2 {
+.home-content h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   animation: fadeIn 1.5s ease-out;
 }
 
-.hero-content p {
+.home-content p {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   animation: fadeIn 1.5s ease-out;
 }
 
-.hero-content .btn {
+.home-content .btn {
   padding: 0.8rem 1.5rem;
   background: #ff9800;
   color: white;
@@ -111,7 +110,7 @@ h3 {
   animation: fadeIn 2s ease-out;
 }
 
-.hero-content .btn:hover {
+.home-content .btn:hover {
   background: #e67e22;
 }
 
@@ -121,17 +120,20 @@ h3 {
   background: #f9f9f9;
 }
 
+.about p {
+  font-size: 1, 5rem;
+}
+
 .features {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-top: 2rem;
 }
 
 .feature {
   border: #ff9800 2px solid;
-  flex: 1 1 calc(33% - 1rem);
+  flex: 1 1 calc(33% - 1rem); /* elemnty w kontenerze beda powiekszaly sie i kurczyly jednakowo, domyslnie elemnt w kontenerze ma zajmowac 33% obszaru kontenera - 1rem*/
   padding: 1.5rem;
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -162,6 +164,7 @@ h3 {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 1.5rem;
+  margin: 10px;
 }
 
 .card {
@@ -174,18 +177,26 @@ h3 {
   transition: transform 0.3s ease;
 }
 
+.card details {
+  background-color: #2e8b57;
+}
+
 .card:hover {
   transform: translateY(-10px);
   background: #2e8b57;
 }
 
-/* Testimonials Section */
-.testimonials {
+.card summary:hover {
+  background-color: white;
+}
+
+/* Review Section */
+.reviews {
   padding: 2rem 1rem;
   background: #f4f4f4;
 }
 
-.testimonial {
+.review {
   margin: 1rem 0;
   text-align: center;
   font-style: italic;
@@ -285,7 +296,7 @@ h3 {
   }
 }
 
-/* Styl dla sekcji kontaktu */
+/* Contact Section */
 .contact {
   padding: 3rem 0;
   background-color: #f4f4f4;
